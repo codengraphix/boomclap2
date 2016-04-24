@@ -1,0 +1,34 @@
+<html>
+
+<body>
+
+  <form id="frm1" action="form_action.asp">
+    Mach Value: <input type="text" name="machVal" value="1">
+    <br>
+  </form>
+
+
+  <button onclick="boomFunction()">Calculate angle of Mach cone</button>
+
+  <p id="demo"></p>
+
+  <script>
+    function boomFunction() {
+        var x = document.getElementById("frm1");
+        var text = "";
+        var i;
+        for (i = 0; i < x.length ;i++) {
+            text += x.elements[i].value + "<br>";
+        }
+        var machNum = parseInt(text); 
+        var machConeAngle = Math.asin(1/machNum);
+        document.writeln("Mach Num:" + machNum + "<br>");
+        document.write("Mach Cone Angle:" + machConeAngle);
+        document.getElementById("demo").innerHTML = text;
+                                
+    }
+  </script>
+
+</body>
+
+</html>
